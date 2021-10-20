@@ -13,6 +13,7 @@ Moves folders to own sub-folder "Folders"
 
 """
 
+# File categories. Feel free to add your own.
 EXT_AUDIO = ["mp3", "wav", "aif", "aiff", "flac"]
 EXT_VIDEO = ["mp4", "mov"]
 EXT_IMGS = ["png", "PNG", "jpg", "JPG", "jpeg", "gif", "webp", "psd", "eps", "ai"]
@@ -22,14 +23,18 @@ EXT_INSTL = ["dmg", "iso", "pkg", "app", "exe"]
 EXT_OTHER = ["ics", "otf"]
 EXT_DELETE = ["torrent"]
 
+# Working paths. No need to change if folders in default locations
 BASE_PATH = os.path.expanduser("~")  # Gets your user folder
 DOWNLOADS_PATH = os.path.join(BASE_PATH, "Downloads")  # Name of your downloads folder
-DEST_DIRS = ["Music", "Movies", "Pictures", "Documents", "Installers", "Others", "Zip", "Folders", "WeTrnsfr"]  # Folders to create
+# Destination folders to create
+DEST_DIRS = ["Music", "Movies", "Pictures", "Documents", "Installers", "Others", "Zip", "Folders", "WeTrnsfr"]
+
+# Print statements for debugging
 print("BASE_PATH is", BASE_PATH)
 print("DOWNLOADS_PATH is", DOWNLOADS_PATH)
 
 for d in DEST_DIRS:
-    # print(d)  # Prints folders to move files to
+    # print(d)  # Debugging Prints folders to move files to
     dir_path = os.path.join(DOWNLOADS_PATH, d)
     if not os.path.isdir(dir_path):  # If folders not found, make them
         os.mkdir(dir_path)
@@ -44,7 +49,6 @@ print("Found the following files:")
 print("files_list =")
 # print(*files_list, sep="\n")
 pprint(files_list)
-
 
 
 for file_name in files_list:
