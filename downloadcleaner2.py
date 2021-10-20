@@ -18,7 +18,7 @@ EXT_VIDEO = ["mp4", "mov"]
 EXT_IMGS = ["png", "PNG", "jpg", "JPG", "jpeg", "gif", "webp", "psd", "eps", "ai"]
 EXT_DOCS = ["txt", "pdf", "PDF", "doc", "docx", "xls", "xlsx", "pptx", "rtf", "ppt", "epub"]
 EXT_COMPR = ["zip", "rar", "bin"]
-EXT_INSTL = ["dmg", "iso", "pkg", "app"]
+EXT_INSTL = ["dmg", "iso", "pkg", "app", "exe"]
 EXT_OTHER = ["ics", "otf"]
 EXT_DELETE = ["torrent"]
 
