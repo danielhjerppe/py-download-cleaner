@@ -17,17 +17,18 @@ Moves folders to own sub-folder "Folders"
 EXT_AUDIO = ["mp3", "wav", "aif", "aiff", "flac"]
 EXT_VIDEO = ["mp4", "mov"]
 EXT_IMGS = ["png", "PNG", "jpg", "JPG", "jpeg", "gif", "webp", "psd", "eps", "ai"]
-EXT_DOCS = ["txt", "pdf", "PDF", "doc", "docx", "xls", "xlsx", "pptx", "rtf", "ppt", "epub"]
-EXT_COMPR = ["zip", "rar", "bin"]
+EXT_DOCS = ["txt", "pdf", "PDF", "doc", "docx", "xls", "xlsx", "pptx", "rtf", "ppt", "epub", "csv"]
+EXT_COMPR = ["zip", "rar", "bin", "tar", "bin"]
 EXT_INSTL = ["dmg", "iso", "pkg", "app", "exe"]
-EXT_OTHER = ["ics", "otf"]
+EXT_OTHER = ["ics", "otf", "smc", "json", "md"]
 EXT_DELETE = ["torrent"]
+EXT_3D = ["stl"]
 
 # Working paths. No need to change if folders in default locations
 BASE_PATH = os.path.expanduser("~")  # Gets your user folder
 DOWNLOADS_PATH = os.path.join(BASE_PATH, "Downloads")  # Name of your downloads folder
 # Destination folders to create
-DEST_DIRS = ["Music", "Movies", "Pictures", "Documents", "Installers", "Others", "Zip", "Folders", "WeTrnsfr"]
+DEST_DIRS = ["Music", "Movies", "Pictures", "Documents", "Installers", "Others", "Zip", "Folders", "WeTrnsfr", "3D"]
 
 # Print statements for debugging
 print("BASE_PATH is", BASE_PATH)
@@ -99,6 +100,11 @@ for f_ext, f_list in files_mapping.items():
     elif f_ext in EXT_VIDEO:
         for file in f_list:
             os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(DOWNLOADS_PATH, "Movies", file))
+            print("Files moved:", file)
+
+    elif f_ext in EXT_3D:
+        for file in f_list:
+            os.rename(os.path.join(DOWNLOADS_PATH, file), os.path.join(DOWNLOADS_PATH, "3D", file))
             print("Files moved:", file)
 
     elif f_ext in EXT_DELETE:
