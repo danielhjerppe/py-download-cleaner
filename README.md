@@ -1,5 +1,5 @@
 # download_maid
-Cleans and organizes the Download folder
+Organizes your Download folder
 
 Made by Daniel Hjerppe daniel.hjerppe@gmail.com <br>
 Heavily influenced by Curious Coding: https://www.youtube.com/watch?v=5idxowRxWW0
