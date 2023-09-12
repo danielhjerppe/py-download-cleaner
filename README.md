@@ -1,10 +1,16 @@
-# download_maid
+# py-download-cleaner
 Organizes your Download folder
 
-Made by Daniel Hjerppe daniel.hjerppe@gmail.com <br>
-Heavily influenced by Curious Coding: https://www.youtube.com/watch?v=5idxowRxWW0
-
-Tested on MacOS Big Sur and Windows 10
+Tested on MacOS Ventura
 
 Goes through your files in Downloads folder and moves them into own subfolders under "Downloads".
-<br>Moves folders to own sub-folder "Folders"
+
+To customize, modify the dictionary below. *Keys* represent folder names, while the *values* associated with keys indicate which file types should be moved to those folders by the program.
+
+```python
+FILE_TYPES = {"Pictures": [".png", ".jpg", ".jpeg", ".JPG"],
+              "Documents": [".pdf", ".docx", ".pptx", ".txt", ".xlsx"],
+              "3D": [".stl", ".f3d", ".STEP", ".stp", ".3mf"],
+              "Archives": [".zip", ".dmg", ".pkg"]
+              }
+```
