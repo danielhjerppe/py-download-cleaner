@@ -10,11 +10,13 @@ BASE_PATH = Path.home()
 DOWNLOADS_PATH = BASE_PATH.joinpath("Downloads")
 
 """ In below dict, keys are folders to be created and the associated list is file extensions to move."""
-FILE_TYPES = {"Pictures": [".png", ".jpg", ".jpeg", ".JPG"],
-              "Documents": [".pdf", ".docx", ".pptx", ".txt", ".xlsx"],
-              "3D": [".stl", ".f3d", ".STEP", ".stp", ".3mf"],
-              "Archives": [".zip", ".dmg", ".pkg"],
-              "Music": [".wma"],
+FILE_TYPES = {"Pictures": [".png", ".jpg", ".jpeg", ".JPG", ".webp", ".svg", ".dwg", ".PNG"],
+              "Documents": [".pdf", ".docx", ".pptx", ".txt", ".xlsx", ".doc", ".xls"],
+              "3D": [".stl", ".f3d", ".STEP", ".stp", ".3mf", ".blend", ".SAT"],
+              "Archives": [".zip", ".dmg", ".pkg", ".rar", ".deb", ".gz"],
+              "Music": [".wma", ".mp3"],
+              "Movies": [".mov", ".mp4"],
+              "Others": [".srt", ".curaprofile", ".html"],
               "DELETE ME": [".ics", ".torrent"]
               }
 
@@ -37,19 +39,15 @@ def move_files(list_of_files):
                     Path(DOWNLOADS_PATH / file).rename(DOWNLOADS_PATH / destination_folder / file)
                     print(f"\033[1mMoved\033[0m {file}\033[33m to \033[3m{destination_folder}\033[0m")
             else:
-                print(f"No {suffix} files found")
+                pass
 
 
 def make_folder(destination):
     if not Path.joinpath(DOWNLOADS_PATH, destination).is_dir():
-        print()
-        print(f"{destination} doesn't exist, let's make one!")
+        print(f"\n{destination} doesn't exist, let's make one!\n")
         Path.mkdir(DOWNLOADS_PATH / destination)
-        print()
     else:
-        print()
-        print(f"\033[33m{destination} folder already in \033[0m{DOWNLOADS_PATH}")
-        print()
+        print(f"\n\033[33m{destination} folder already in \033[0m{DOWNLOADS_PATH}\n")
 
 def count_files(list_of_files):
     sorted_dict = dict(sorted(list_of_files.items(), key=lambda item: len(item[1]), reverse=True))
@@ -63,6 +61,7 @@ def count_files(list_of_files):
         print(f"with {suffix} extension")
 
 
+
 def main():
     print(f"""
     {BASE_PATH = }
@@ -70,7 +69,6 @@ def main():
     """)
 
     listed_files = list_files()
-
     count_files(listed_files)
     move_files(listed_files)
 
